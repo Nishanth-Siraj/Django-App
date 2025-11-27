@@ -67,3 +67,24 @@ z tag
 ... 
 z-post
 New Post
+
+>>> posts = Post.objects.prefetch_related(Prefetch('tags',queryset=Tags.objects.filter(tag__icontains="z")))
+>>> for post in posts:
+...     for pst in post.tags.all():
+...             print(pst.name)
+... 
+Traceback (most recent call last):
+  File "<console>", line 3, in <module>
+AttributeError: 'Tags' object has no attribute 'name'
+>>> for post in posts:
+...     for pst in post.tags.all():
+...             print(pst.title)
+... 
+Traceback (most recent call last):
+  File "<console>", line 3, in <module>
+AttributeError: 'Tags' object has no attribute 'title'
+>>> for post in posts:
+...     for pst in post.tags.all():
+...             print(pst.tag)
+... 
+z tag

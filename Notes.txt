@@ -1,0 +1,39 @@
+
+# inspect a container
+sudo docker inspect docker-v1-cont
+
+# display changed files
+sudo docker diff docker-v1-cont | grep 'process'
+
+# delete a running container
+docker rm -f docker-v1-cont
+
+-f = force
+
+# push image to docker hub
+docker push IMAGE_NAME
+
+# pull image to docker_hub
+docker pull IMAGE_NAME
+
+# show all running containers
+docker ps
+
+# show all containers
+docker ps -a
+
+# copy file from host to container
+docker cp index.html web:/index.html
+
+# copy a file from container to host
+docker cp web:/index.html index.html
+
+# rename a container
+docker rename old_name new_name
+
+# docker build container from image
+docker build .
+
+# docker exec: Executes a command inside a running container.
+
+# docker logs: Fetches and follows the logs of a container.
